@@ -1,4 +1,6 @@
 #!/usr/local/bin/python3
+# -*- coding: utf-8 -*- 
+
 import requests
 url = 'https://notify-api.line.me/api/notify'
 token = 'Ryn034SAsglah4mmDvBKwz7Zwjx46BfWngmjJpnpmep'
