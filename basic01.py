@@ -16,7 +16,7 @@ headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'B
 #Ryn034SAsglah4mmDvBKwz7Zwjx46BfWngmjJpnpmep ชิน
 #3IHDRHBTUWBmhGRo6aLMEircbPQDUTfEflQQblrBHKL กลุ่ม
 eiei = '5555'
-msg = '\nทดสอบการแจ้งเตือน Big Data \nทุกๆ 1 ชั่วโมง \n'+'ขณะนี้เวลา '+ time +'\n\n' + 'Complete!!'
+msg = '\nทดสอบการแจ้งเตือน Big Data \nทุกๆ 5 นาที \n'+'ขณะนี้เวลา '+ time +'\n\n' + 'Complete!!'
 
 r = requests.post(url, headers=headers, data = {'message':msg})
 print (r.text)
