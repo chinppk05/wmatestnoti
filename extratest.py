@@ -11,7 +11,7 @@ import pymongo
 
 staion = 1
 staion_num = 1
-nowww = datetime.now.()
+nowww = datetime.now()
 initrun = nowww.strftime(%H:%M:%S)
 while staion_num < 52:
     url = "https://wma-project-277408.et.r.appspot.com/grafana-api/"+str(staion)+"/query"
