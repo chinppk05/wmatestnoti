@@ -11,7 +11,7 @@ import pymongo
 
 staion = 1
 staion_num = 1
-initrun = datetime.now()
+initrun = datetime.now.strftime()
 while staion_num < 52:
     url = "https://wma-project-277408.et.r.appspot.com/grafana-api/"+str(staion)+"/query"
     # payload ตั้งต้นก่อนดัดแปลง
@@ -238,6 +238,6 @@ while staion_num < 52:
     staion_num = staion_num+1
     staion = staion+1
 
-endrun = datetime.now()
+endrun = datetime.now.strftime()
 
-print ('start at '+strftime(initrun)+' ; end at '+strftime(endrun))
+print ('start at '+initrun+' ; end at '+endrun)
