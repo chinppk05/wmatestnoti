@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3
 import pymongo
-
+import dns
 
 client = pymongo.MongoClient("mongodb+srv://chinppk05:25021996@wmatest.plvbd.mongodb.net/wma_test?retryWrites=true&w=majority")
 
