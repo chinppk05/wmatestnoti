@@ -12,7 +12,7 @@ import pymongo
 
 myclient = pymongo.MongoClient("mongodb+srv://chinppk05:25021996@wmatest.plvbd.mongodb.net/wma_test?retryWrites=true&w=majority")
 
-
+fuckyeah = []
 staion = 1
 staion_num = 1
 nowww = datetime.now()
@@ -83,10 +83,8 @@ while staion_num < 52:
     """
     print(new_payload)
     print(type(new_payload))
-
     for i, v in enumerate(new_payload):
     print(i, v)
-
     """
     when = new_payload['range']
     # print(when)
@@ -150,17 +148,12 @@ while staion_num < 52:
         print(wma_2)
         print("")
         print(len(wma_2))
-
-
         #ดูพารามิเตอร์ใน dict
         for i, v in enumerate(wma_2):
         print(i, v)
-
         #ลองเทส
         #print(wma_2["columns"])
         #print(type(wma_2["rows"]))
-
-
         #เช็ค columns
         for i in wma_2["columns"]:
         print(i)
@@ -238,13 +231,70 @@ while staion_num < 52:
         mydict = wma_data
 
         x = mycol.insert_one(mydict)
-        # print(x)
+        #print(x)
         print("station : ",staion_num," is success!!")
+        nani = True #check data
+
+
+    if  (nani == True):
+        fuckyeah.insert(staion_num-1,wma_data)   
+    else:
+        fuckyeah.insert(staion_num-1,'nope')   
+    nani = False
+    #print(fuckyeah)
+    
     staion_num = staion_num+1
     staion = staion+1
     
-    
+sum_water = 0 
+
+for i in fuckyeah:
+    if (i != "nope"):
+        #print(i["treated_water"])
+        #print("\n")
+        
+        sum_water = sum_water + i["treated_water"]
+
+#print("ปริมาณน้ำรวมวันนี้ :",f'{sum_water:,}')
+
+havedata = 0
+do_normal = 0
+do_careful = 0
+do_bad = 0
+do_zero = 0
+
+for i in fuckyeah:
+    if (i != "nope"):
+        havedata = havedata+1
+        if (i["treated_doo"] >= 3):
+            do_normal = do_normal+1
+        elif ((i["treated_doo"] <= 3) and (i["treated_doo"]>2)):
+            do_careful = do_careful+1
+        elif (i["treated_doo"] == 0):
+            do_zero = do_zero+1
+        else:
+            do_bad = do_bad+1
+
+no_data = len(fuckyeah)-havedata
+
 enddd = datetime.now()
 endrun = enddd.strftime('%H:%M:%S')
 
 print ('start at '+initrun+' ; end at '+endrun)
+
+
+
+
+
+
+url = 'https://notify-api.line.me/api/notify'
+token = 'Ryn034SAsglah4mmDvBKwz7Zwjx46BfWngmjJpnpmep'
+headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'Bearer '+token}
+
+#Ryn034SAsglah4mmDvBKwz7Zwjx46BfWngmjJpnpmep ชิน
+#3IHDRHBTUWBmhGRo6aLMEircbPQDUTfEflQQblrBHKL กลุ่ม
+
+msg = '\nทดสอบการแจ้งเตือน Big Data\n'+'รายงานข้อมูลน้ำเสียประจำวัน \n\n'+'ปริมาณน้ำเสียประจำวัน: '+f'{sum_water:,}'+' ลบ.ม\n\n'+'มีข้อมูล:'+f'{havedata:,}'+' แห่ง\n'+' - คุณภาพน้ำปกติ: '+f'{do_normal:,}'+' แห่ง\n'+' - คุณภาพน้ำควรเฝ้าระวัง: '+f'{do_careful:,}'+' แห่ง\n'+' - คุณภาพน้ำต่ำกว่ามาตรฐาน '+f'{do_bad:,}'+' แห่ง\n'+'คุณภาพน้ำเป็นศูนย์ : '+f'{do_zero:,}'+' แห่ง\n\n'+'ไม่มีข้อมูล: '+f'{no_data:,}'+' แห่ง\n\n'+'ข้อมูลเพิ่มเติม: http://www.wma.or.th/'
+
+r = requests.post(url, headers=headers, data = {'message':msg})
+print (r.text)
