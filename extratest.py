@@ -240,4 +240,4 @@ while staion_num < 52:
 
 endrun = datetime.now()
 
-print ('start at '+initrun+' ; end at '+endrun)
+print ('start at '+strftime(initrun)+' ; end at '+strftime(endrun))
