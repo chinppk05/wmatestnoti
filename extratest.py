@@ -9,6 +9,10 @@ import requests
 import json
 import pymongo
 
+
+myclient = pymongo.MongoClient("mongodb+srv://chinppk05:25021996@wmatest.plvbd.mongodb.net/wma_test?retryWrites=true&w=majority")
+
+
 staion = 1
 staion_num = 1
 nowww = datetime.now()
@@ -227,7 +231,7 @@ while staion_num < 52:
         #print(wma_data)
         
         # เพิ่มข้อมูล
-        myclient = pymongo.MongoClient("mongodb+srv://chinppk05:25021996@wmatest.plvbd.mongodb.net/wma_test?retryWrites=true&w=majority")
+        #myclient = pymongo.MongoClient("mongodb+srv://chinppk05:25021996@wmatest.plvbd.mongodb.net/wma_test?retryWrites=true&w=majority")
         #myclient = pymongo.MongoClient("mongodb+srv://chinppk05:25021996@wmatest.plvbd.mongodb.net/wma_test?retryWrites=true&w=majority")
         mydb = myclient["wma_test"]
         mycol = mydb["wmatestja"]
@@ -238,7 +242,9 @@ while staion_num < 52:
         print("station : ",staion_num," is success!!")
     staion_num = staion_num+1
     staion = staion+1
-
-endrun = nowww.strftime('%H:%M:%S')
+    
+    
+enddd = datetime.now()
+endrun = enddd.strftime('%H:%M:%S')
 
 print ('start at '+initrun+' ; end at '+endrun)
