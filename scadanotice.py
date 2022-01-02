@@ -136,7 +136,7 @@ for i in all_data:
        water_daily[n]["waterdaily"] = i[0]["waterDiff"]
     n = n+1
 
-print(water_daily)
+#print(water_daily)
 
 url = 'https://notify-api.line.me/api/notify'
 token = 'drjIP0BKslpQO0YyzVs7dMrlT8DDRPkdtrbYdHK23cj'
@@ -149,7 +149,7 @@ headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'B
 msg = ""
 n = 0
 for i in water_daily:
-    print(i)
+    #print(i)
     msg = msg+ "\n\n"+water_daily[n]["station"]+" : "+"\n"+str(water_daily[n]["waterdaily"])+" ลบ.ม" 
     n = n+1
 
