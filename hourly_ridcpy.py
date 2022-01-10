@@ -11,6 +11,10 @@ nowja = datetime.now()
 
 
 myclient = pymongo.MongoClient("mongodb+srv://chinppk05:25021996@wmatest.plvbd.mongodb.net/wma_test?retryWrites=true&w=majority")
+mydb = myclient["wma_test"]
+mycol = mydb["wma88"]
+
+
 station_id = [1,2,3,4,5,6]
 counter = 0 
 
@@ -49,8 +53,7 @@ while (counter < len(station_id)):
 
 
 
-    mydb = myclient["wma_test"]
-    mycol = mydb["wma88"]
+    
     mydict = data[nowja.hour]
     x = mycol.insert_one(mydict)
 print("Complete!!",counter)
