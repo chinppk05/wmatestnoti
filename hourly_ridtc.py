@@ -6,7 +6,11 @@ import pymongo
 from datetime import datetime
 
 nowja = datetime.now()
+
 myclient = pymongo.MongoClient("mongodb+srv://chinppk05:25021996@wmatest.plvbd.mongodb.net/wma_test?retryWrites=true&w=majority")
+mydb = myclient["wma_test"]
+mycol = mydb["wma89"]
+
 station_id = [1,2,3,4,5,6,7,8,9]
 counter = 0 
 
@@ -44,8 +48,7 @@ while (counter < len(station_id)):
         del wtf['waterLevelMainten']
         n = n+1
     
-    mydb = myclient["wma_test"]
-    mycol = mydb["wma89"]
+    
     mydict = data[nowja.hour]
     x = mycol.insert_one(mydict)
 
