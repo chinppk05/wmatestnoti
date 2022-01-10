@@ -45,7 +45,7 @@ while (counter < len(station_id)):
         n = n+1
     
     mydb = myclient["wma_test"]
-    mycol = mydb["ridtc"]
+    mycol = mydb["wma89"]
     mydict = data[nowja.hour]
     x = mycol.insert_one(mydict)
 
