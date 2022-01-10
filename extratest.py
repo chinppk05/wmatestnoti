@@ -227,7 +227,7 @@ while staion_num < 52:
         #myclient = pymongo.MongoClient("mongodb+srv://chinppk05:25021996@wmatest.plvbd.mongodb.net/wma_test?retryWrites=true&w=majority")
         #myclient = pymongo.MongoClient("mongodb+srv://chinppk05:25021996@wmatest.plvbd.mongodb.net/wma_test?retryWrites=true&w=majority")
         mydb = myclient["wma_test"]
-        mycol = mydb["wmatestja"]
+        mycol = mydb["wma99"]
         mydict = wma_data
 
         x = mycol.insert_one(mydict)
