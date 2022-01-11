@@ -14,13 +14,13 @@ mycol = mydb["wma87"]
 
 nowja = datetime.now()
 
-station_id = ["T3","S5","S4","T4","S7","S6","T2","S2","S17","S18","S20"]
-station_name = ["วัดบ้านแป้ง","วัดโพธิ์แดงเหนือ","วัดมะขาม","สะพานพระนั่งเกล้า ","สะพานพระพุทธยอดฟ้า","คลองลัดโพธิ์","โรงไฟฟ้าพระนครใต้","ร้งสิตไซฟอน","พงษ์เพชร","โรงผลิตน้ำสามเสน","คลองน้ำอ้อม"]
+code = ["T3","S5","S4","T4","S7","S6","T2","S2","S17","S18","S20"]
+name = ["วัดบ้านแป้ง","วัดโพธิ์แดงเหนือ","วัดมะขาม","สะพานพระนั่งเกล้า ","สะพานพระพุทธยอดฟ้า","คลองลัดโพธิ์","โรงไฟฟ้าพระนครใต้","ร้งสิตไซฟอน","พงษ์เพชร","โรงผลิตน้ำสามเสน","คลองน้ำอ้อม"]
 
 counter = 0
 
-while (counter < len(station_id)):
-    url = "http://rwc.mwa.co.th/page/stats/table.php?id="+station_id[counter]+"&dt2="+str(nowja.year)+"-"+str(nowja.month)+"-"+str(nowja.day)+"&ntype=1HOUR"
+while (counter < len(code)):
+    url = "http://rwc.mwa.co.th/page/stats/table.php?id="+code[counter]+"&dt2="+str(nowja.year)+"-"+str(nowja.month)+"-"+str(nowja.day)+"&ntype=1HOUR"
     res = requests.get(url)
     res.encoding = "utf-8"
     
@@ -60,12 +60,14 @@ while (counter < len(station_id)):
     while i < 24 :
         mwa_data = dict(zip(col,data[i]))
         all_data.append(mwa_data)
-  
-        all_data[i]['stationid'] = station_id[counter]
-        all_data[i]['stationname'] = station_name[counter]
+        all_data[i]['stationId'] = code[counter]
+        all_data[i]['stationName'] = name[counter]
         i = i+1
 
     counter = counter+1
+    
+    j = 0
+    
     x = mycol.insert_one(all_data[nowja.hour])
     """
     print(all_data[nowja.hour])
