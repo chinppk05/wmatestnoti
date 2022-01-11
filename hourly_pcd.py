@@ -9,7 +9,7 @@ from datetime import datetime
 
 myclient = pymongo.MongoClient("mongodb+srv://chinppk05:25021996@wmatest.plvbd.mongodb.net/wma_test?retryWrites=true&w=majority")
 mydb = myclient["wma_test"]
-mycol = mydb["testkub"]
+mycol = mydb["wma85"]
 
 nowja = datetime.now()
 
