@@ -29,6 +29,7 @@ cnx_api = "http://www.allmcl.com/api/getFlowMeterLogBySiteAndPeriod/10/2022-01-0
 
 
 
+
 testapi = "http://www.allmcl.com/api/getFlowMeterLogBySiteAndPeriod/"+"7"+"/2022-01-02/2022-01-02"
 
 payload={}
@@ -44,7 +45,7 @@ headers = {}
 
 #print(data[0]['waterDiff'])
 
-list_scada = ["1","2","3","4","5","6","7","8","9","10"]
+list_scada = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"]
 
 #print(len(list_scada))
 
@@ -70,54 +71,91 @@ while i < len(list_scada):
 water_daily = [
     {
     "station_id" : 1,
-    "station" : "เทศบาลตำบลบางพลี จังหวัดสมุทรปราการ",
+    "station" : "บางพลี",
     "waterdaily" : ""
     },
     {
     "station_id" : 2,
-    "station" : "เทศบาลเมืองสามพราน จังหวัดนครปฐม",
+    "station" : "สามพราน",
     "waterdaily" : ""
     },
     {
     "station_id" : 3,
-    "station" : "เทศบาลนครระยอง จังหวัดระยอง",
+    "station" : "ระยอง",
     "waterdaily" : ""
     },
     {
     "station_id" : 4,
-    "station" : "เทศบาลตำบลบางปลา แห่งที่ 2  จังหวัดสมุทรปราการ",
+    "station" : "บางปลา 2",
     "waterdaily" : ""
     },
     {
     "station_id" : 5,
-    "station" : "เทศบาลเมืองปู่เจ้าสมิงพราย จังหวัดสมุทรปราการ",
+    "station" : "ปู่เจ้าสมิงพราย",
     "waterdaily" : ""
     },
     {
     "station_id" : 6,
-    "station" : "เทศบาลตำบลอ้อมใหญ่ จังหวัดนครปฐม",
+    "station" : "อ้อมใหญ่",
     "waterdaily" : ""
     },
     {
     "station_id" : 7,
-    "station" : "เทศบาลเมืองแพรกษา จังหวัดสมุทรปราการ",
+    "station" : "แพรกษา",
     "waterdaily" : ""
     },
     {
     "station_id" : 8,
-    "station" : "องค์การบริหารส่วนตำบลกำแพงแสน จังหวัดนครปฐม",
+    "station" : "กำแพงแสน",
     "waterdaily" : ""
     },
     {
     "station_id" : 9,
-    "station" : "องค์การบริหารส่วนตำบลลำโพ จังหวัดนนทบุรี",
+    "station" : "ลำโพ",
     "waterdaily" : ""
     },
     {
     "station_id" : 10,
-    "station" : "เทศบาลนครเชียงใหม่",
+    "station" : "เชียงใหม่",
     "waterdaily" : ""
     },
+    
+    {
+    "station_id" : 11,
+    "station" : "พะเยา",
+    "waterdaily" : ""
+    },
+    
+    {
+    "station_id" : 12,
+    "station" : "ปลายบาง",
+    "waterdaily" : ""
+    },
+    
+    {
+    "station_id" : 13,
+    "station" : "เขาน้อย",
+    "waterdaily" : ""
+    },
+    
+    {
+    "station_id" : 14,
+    "station" : "สงขลา",
+    "waterdaily" : ""
+    },
+    
+    {
+    "station_id" : 15,
+    "station" : "พิษณุโลก",
+    "waterdaily" : ""
+    },
+    
+    {
+    "station_id" : 16,
+    "station" : "ราชบุรี",
+    "waterdaily" : ""
+    },
+    
 ]
 
 """
@@ -139,17 +177,18 @@ for i in all_data:
 #print(water_daily)
 
 url = 'https://notify-api.line.me/api/notify'
-token = 'drjIP0BKslpQO0YyzVs7dMrlT8DDRPkdtrbYdHK23cj'
+token = 'Ryn034SAsglah4mmDvBKwz7Zwjx46BfWngmjJpnpmep'
 headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'Bearer '+token}
 
 #G1gMDFgZrhGCa4rXePJP36PhEM3UejaSPUBvk1GDijv กลุ่ม scada
 #Ryn034SAsglah4mmDvBKwz7Zwjx46BfWngmjJpnpmep ชิน
 #3IHDRHBTUWBmhGRo6aLMEircbPQDUTfEflQQblrBHKL กลุ่ม
+#drjIP0BKslpQO0YyzVs7dMrlT8DDRPkdtrbYdHK23cj
 
 msg = ""
 n = 0
 for i in water_daily:
-    #print(i)
+    print(i)
     msg = msg+ "\n\n"+water_daily[n]["station"]+" : "+"\n"+str(water_daily[n]["waterdaily"])+" ลบ.ม" 
     n = n+1
 
