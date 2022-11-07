@@ -177,7 +177,7 @@ for i in all_data:
 #print(water_daily)
 
 url = 'https://notify-api.line.me/api/notify'
-token = 'Ryn034SAsglah4mmDvBKwz7Zwjx46BfWngmjJpnpmep'
+token = 'drjIP0BKslpQO0YyzVs7dMrlT8DDRPkdtrbYdHK23cj'
 headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'Bearer '+token}
 
 #G1gMDFgZrhGCa4rXePJP36PhEM3UejaSPUBvk1GDijv กลุ่ม scada
