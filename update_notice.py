@@ -111,7 +111,7 @@ def main():
 
 
     # Send Line notification with the summary
-    access_token = "hOI8xi2ZfwY93FV4UAhvB4NonrwyB3CTGUHRyHXp7tA"  # Replace with your Line Notify access token
+    access_token = "drjIP0BKslpQO0YyzVs7dMrlT8DDRPkdtrbYdHK23cj"  # Replace with your Line Notify access token
     send_line_notification(access_token, summary_message)
 
 if __name__ == "__main__":
